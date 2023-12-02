@@ -1,0 +1,16 @@
+name: CI
+on:
+  push: {}
+  pull_request: {}
+  workflow_dispatch: {}
+
+jobs:
+  oidc:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: gsoc2/setup-action@v1
+      - uses: gsoc2/build-push-action@v1
